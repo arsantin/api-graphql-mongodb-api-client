@@ -6,13 +6,13 @@ import Link from 'next/link';
 export default function Home({users}) {
   console.log("users", users)
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Marketing - PB</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>   
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main>
+        <h1>
           Usuários
         </h1>
         <Link href="/posts/novo-post"><a>+ CRIAR NOVO POST</a></Link>
@@ -23,7 +23,7 @@ export default function Home({users}) {
 
         }
       </main>
-      <footer className={styles.footer}>
+      <footer>
        
       </footer>
     </div>

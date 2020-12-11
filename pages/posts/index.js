@@ -8,6 +8,7 @@ const Teste = styled.div`
   background-color: red;
   color: #fff;
   padding: 10px;
+  margin: 10px;
 `
 
 const GET_POSTS = gql`
@@ -37,13 +38,17 @@ export default function Home() {
         <title>Marketing - PB</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>   
-      <main>
-        <Teste>
+      <main>       
         <h1>
           Posts
-        </h1></Teste>
+        </h1>
         {posts.map((post) => {
-          return <div key={post._id}>{post.title}</div>
+          return <Teste key={post._id}>
+            <div className="title">{post.title}</div>
+            <div className="content">{post.content}</div>
+            <div className="author">{post.author.fullName}</div>
+            
+          </Teste>
         })}
         <Link href="/posts/novo-post"><a>+ CRIAR NOVO POST</a></Link>
         <Link href="/users/novo-usuario"><a>+ CRIAR NOVO USUÁRIO</a></Link>       
