@@ -1,9 +1,8 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
-import Menu from '../components/Menu';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+import Menu from '../components/Menu'
 
-
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -25,16 +24,19 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        
-        <Head />        
-          <Menu />
-          <body>
-            <Main />
-            <NextScript />            
-          </body>        
+        <Head> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+        </Head>       
+        <body style={{fontFamily: 'Roboto', backgroundColor: '#3366ff', color: '#fff'}}>
+          <header>
+            <Menu />
+          </header>
+          
+          <Main />
+          <NextScript />      
+        </body>       
       </Html>
-    )
+    )     
   }
 }
-
-export default MyDocument
