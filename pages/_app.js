@@ -1,5 +1,6 @@
 // import App from 'next/app'
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import Menu from '../components/Menu'
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -10,7 +11,8 @@ const client = new ApolloClient({
 
 function MyApp({ Component, pageProps }) {
   return <>
-  <ApolloProvider client={client}>    
+  <ApolloProvider client={client}> 
+  <Menu/>   
     <Component {...pageProps} />
     </ApolloProvider>
   </>

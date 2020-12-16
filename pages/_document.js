@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Menu from '../components/Menu'
+
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -28,10 +28,7 @@ export default class MyDocument extends Document {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
         </Head>       
-        <body style={{fontFamily: 'Roboto', backgroundColor: '#3366ff', color: '#fff'}}>
-          <header>
-            <Menu />
-          </header>
+        <body style={{margin: '0', fontFamily: 'Roboto', backgroundColor: '#FFF', color: '#fff'}}>
           
           <Main />
           <NextScript />      

@@ -1,28 +1,36 @@
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from '@apollo/client';
+import { useRouter } from 'next/router'
 
-const ADD_POST = gql`
-  mutation CreatePost($data: PostInput!) {
-    createPost(data: $data){
-      title
+const DELETE_POST = gql`
+  mutation DeletePost($id: ID!) {
+    deletePost(id: $id){
+      _id
     }
   }
 `;
 
-export default function CreatePost() {
+export default function DeletePost() {
   const { register, handleSubmit } = useForm();
 
-  const [createPost, data] = useMutation(ADD_POST);
+  const [deletePost] = useMutation(DELETE_POST);
 
-  const onSubmit = (data) => {
-    const dados = JSON.stringify(data)
-    alert(data)
-    createPost({ variables: { data: data } });
+  
+  const rota = useRouter();
+
+  const onSubmit = (data) => {  
+    
+    const num = rota.query._id;
+    alert("post apagado", num);
+    deletePost({ variables: { 
+      id: "5fd44edda257110f64faef04"
+    } })
+    
   }
 
   return (
     <>
-    <h2>Novo Post</h2>
+    <h2>Update Post</h2>
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="title" ref={register} placeholder="Título" />
 
