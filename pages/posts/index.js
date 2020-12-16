@@ -132,20 +132,22 @@ export default function Home() {
         {posts.map((post) => {
           return <div className="box" key={post._id}>
             <Link href="/posts/[_id]" as={`/posts/${post._id}`} id={post._id}>
-            <a><div key={post._id} >
-            <div className="title"><h2>{post.title}</h2></div>
+              <a>
+                <div key={post._id}>
+                  <div className="title"><h2>{post.title}</h2></div>
+                </div>
+              </a>
+            </Link>
             <div className="edit">
-              <Link href="/posts/editar-post/[_id]" as={`/posts/editar-post/${post._id}`} id={post._id}>
-                <a className="editar">Editar</a>
+              <Link className="editar" href="/posts/editar-post/[_id]" as={`/posts/editar-post/${post._id}`} id={post._id}>
+                <a >Editar</a>
               </Link>
             </div>
             <div className="delete">
-            <Link href="/posts/apagar-post/[_id]" as={`/posts/apagar-post/${post._id}`} id={post._id}>
-                <a className="apagar">APAGAR</a>
+            <Link className="apagar" href="/posts/apagar-post/[_id]" as={`/posts/apagar-post/${post._id}`} id={post._id}>
+                <a>APAGAR</a>
               </Link>
             </div>            
-          </div></a>
-          </Link>
           </div>         
         })}
         </Box>   
